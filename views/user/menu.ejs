@@ -1,0 +1,33 @@
+<%- include('../userheader.ejs')%>
+
+<div class="main-content">
+    <script src="../public/js/script.js"></script>
+    <div class="card-container2">
+        <% for (let i = 0; i < items.length; i++) { %>
+        <form action="/addtocart" method="post">
+        <div class="card2">
+            <img src="../<%= items[i].itemImg %>">
+            <div class="card-details2">
+                <h3><%= items[i].itemName %></h3>
+                <p><%= items[i].itemDesc %></p>
+                <p><span><%= items[i].itemPrice %></span></p>
+            </div>
+      <input type="text" id="secret-field" name="itemid" value="<%= items[i].itemId %>" class="hidden-field">
+            <div class="card-quantity2">
+                <input type="number" name="itemqun" value="1" min="1">
+                <div><button onclick="showPopup()" type="submit">Add</button></div>
+            </div>
+            <% if(loggedin){ %>
+            <div id="popup" class="popup">
+                Item saved in cart!
+              </div>
+              <% } %>
+        </div>
+        </form>
+        <% } %>
+             
+        <!-- Add more card elements here as needed -->
+    </div>
+
+</div>
+<%- include('../userfooter.ejs')%>

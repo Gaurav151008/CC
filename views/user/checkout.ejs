@@ -1,0 +1,98 @@
+<%- include('../userheader.ejs')%>
+
+<script src="../public/js/script.js"></script>
+
+<div class="main-content">
+  
+  <div class="card-container left-container">
+
+    <% for (let i = 0; i < items.length; i++) { %>
+        <div class="card">
+          <!-- Display cart item details and totals here -->
+          <div class="card-body">
+              
+              <form action="/updatequn" method="post">
+                <h3><%= items[i].itemName %></h3>
+                <h3><%= items[i].itemPrice*items[i].itemQuntity %></h3>
+                <div class="card-quantity2">
+                  <input type="text" id="secret-field" name="itemid" value="<%= items[i].itemId %>" class="hidden-field">
+
+                  <input type="number" name="itemqun" value="<%= items[i].itemQuntity %>" >
+                  <button class="remove-button" type="button" onclick="removeItem('<%= items[i].itemId %>')">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+            <% } %>
+  </div>
+             
+  <div class="card-container right-container">
+
+      <div class="card">
+            <h2>Cart Items and Totals</h2>
+            <!-- Add your code to display cart item details and totals -->
+            <h3>Amount : <%= sum %></h3>
+            <h3>Delivery charge: 
+              <% let da = 0; if (sum <= 100) { da = 15; %> 
+                <%= da %>
+                <% } else if (sum > 100 && sum <= 200) { da = 20; %>
+                  <%= da %>
+                  <% } else if (sum <= 300) { da = 25; %>
+                    <%= da %>
+                    <% } else if (sum > 300) { da = 30; %>
+                      <%= da %>
+                      <% } %>
+                    </h3>
+                    
+                    <h3>Total : <%= sum+da %></h3>
+          <!-- Checkout form with location textarea and checkout button -->
+          <div class="card-body">
+          <h2>Delivery Details</h2>
+          <form action="/checkout" method="post">
+            <div class="form-group">
+              <label for="location">Location:</label>
+              <textarea id="location" name="location" placeholder="Enter your location"></textarea>
+            </div>
+            <!-- <input type="text" id="secret-field" name="fdcid" value="<%= items[0].foodCounterId%>" class="hidden-field"> -->
+
+            <button type="submit" id="notify" class="checkout-button" onclick="sendNotify('<%= items[0].foodCounterId %>')">Checkout</button>
+          </form>
+          </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.1/socket.io.js"></script>
+    <!-- <script type="text/javascript">
+
+      var socket = io("http://localhost:4000");
+      $( "#notify" ).on( "click", function() {
+      alert( "Handler for `click` called." );
+        var fdcid = $( "#secret-field" ).val()
+
+        socket.emit("notify",{
+          "fdcid" : fdcid
+        })        
+      } );
+
+    </script> -->
+    <!-- <script type="text/javascript">
+      // Establish socket.io connection
+      console.log("Entry1");
+      var socket = io();
+      // Add the 'click' event listener to the 'notify' button
+      $(document).ready(function() {
+        $("#notify").on("click", function() {
+          console.log("Entry2");
+          var fdcid = $("#secret-field").val();
+    
+          // Emit the 'notify' event with the food counter ID
+          socket.emit("notify", {
+            fdcid: fdcid
+          });
+        });
+      });
+    </script> -->
+    
+</div>
+<%- include('../userfooter.ejs')%>

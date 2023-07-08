@@ -1,0 +1,43 @@
+<%- include('../header.ejs')%>
+ <section class="vh-100" >
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card shadow-2-strong" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+            <div class="vendor-container">
+              <h2>Vendor Account</h2>
+              <div class="vendor-image">
+                <img src="../<%= vendtl[0].fdcImg %>" alt="Food Counter Image">
+              </div>
+              <div class="vendor-details">
+                <p><strong>Vendor Id:</strong><%= vendtl[0].vendorId %></p>
+                <p><strong>Vendor Name:</strong><%= vendtl[0].vendorName %></p>
+                <p><strong>Email:</strong><%= vendtl[0].vendorEmail %></p>
+                <p><strong>Phone:</strong><%= vendtl[0].vendorContact %></p>
+                <p><strong>Food CounterId:</strong><%= vendtl[0].foodCounterId %></p>
+                <p><strong>Food Counter Name:</strong><%= vendtl[0].vendorId %></p>
+              </div>
+            </div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.1/socket.io.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.js"></script>
+            <script type="text/javascript">
+
+              var socket = io("http://localhost:4000");
+              
+              socket.on("notify",function(details){
+                $.notify("FdcId:"+details.fdcid,{
+                  autoHide : false,
+                  className : "success",
+                })         
+              })
+
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> 
+
+<%- include('../footer.ejs')%>

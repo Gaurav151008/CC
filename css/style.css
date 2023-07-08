@@ -1,0 +1,70 @@
+body{
+    background-repeat: no-repeat;
+  }
+  #navfont{
+      color: white;
+      font-size: large;
+  }
+  .btns {
+      background-color: #696666;
+      border-radius: 100px;
+      box-shadow: rgba(31, 30, 30, 0.171) 0 -25px 18px -14px inset,rgba(31, 30, 30, 0.171) 0 1px 2px,rgba(31, 30, 30, 0.171) 0 2px 4px,rgba(31, 30, 30, 0.171) 0 4px 8px,rgba(31, 30, 30, 0.171) 0 8px 16px,rgba(31, 30, 30, 0.171) 0 16px 32px;
+      color: rgb(255, 252, 252);
+      stroke: #000;
+      cursor: pointer;
+      display: inline-block;
+      font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+      padding: 7px 20px;
+      text-align: center;
+      text-decoration: none;
+      transition: all 250ms;
+      border: 0;
+      font-size: 20px;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      margin: auto 50% auto 40%;
+    }
+    
+    .btns:hover {
+      box-shadow: rgba(31, 30, 30, 0.171) 0 -25px 18px -14px inset,rgba(31, 30, 30, 0.171) 0 1px 2px,rgba(31, 30, 30, 0.171) 0 2px 4px,rgba(31, 30, 30, 0.171) 0 4px 8px,rgba(31, 30, 30, 0.171) 0 8px 16px,rgba(31, 30, 30, 0.171) 0 16px 32px;
+      transform: scale(1.05) rotate(-1deg);
+    }
+  
+  #myfooter{
+    bottom: 0;
+  }
+  
+  .banslider{
+    height: 452px!important;
+    object-fit: cover;
+  }
+  
+  .slidertop{
+    margin-top: 2rem;
+  }
+  
+  #cafes{
+    margin-top: 2rem!important;
+  }
+  .card-title {
+    color: #db0075;
+  }
+  .card-text {
+    color: #17E6E6;
+  }
+  .list-inline-item {
+    color: #ffd700
+  }
+  .price {
+    color: #9B1B30;
+  }
+  .btn-pink {
+    background-color: #fcb2b2 !important;
+  }
+
+  
+  /* .splide{
+    display: flex;
+  } */
+  

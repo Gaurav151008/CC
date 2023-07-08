@@ -1,0 +1,22 @@
+<%- include('../userheader.ejs')%>
+
+<div class="main-content">
+    <div class="card-container">
+      <!-- Replace the following code with your dynamic content from the database -->
+
+      <% for (let i = 0; i < counters.length; i++) { %>
+      <div class="card">
+        <img src="<%= counters[i].fdcImg %>" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title"><%= counters[i].foodCounterName %></h5>
+          <button><a href="menu/<%= counters[i].foodCounterId %>">Menu</a></button>
+        </div>
+      </div>
+      <% } %>
+      
+      <!-- Add more cards for each
+      <!-- Add more cards for each food counter -->
+      
+    </div>
+  </div>
+<%- include('../userfooter.ejs')%>

@@ -1,0 +1,127 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.header {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo i {
+  font-size: 24px;
+  color: #333333;
+  margin-right: 10px;
+}
+
+.logo span {
+  font-size: 40px;
+  font-weight: bold;
+  color: #333333;
+  margin-left: 30%;
+}
+
+.options {
+  display: flex;
+  align-items: center;
+}
+
+.options a {
+  margin-left: 20px;
+  margin-right: 20px;
+  text-decoration: none;
+  color: #333333;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.login-button {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: #333333;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.login-button i {
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+/* Main Content Styles */
+.main-content {
+  background-color: #b6b2b2;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 80px;
+  margin-top: 3%;
+}
+
+.card {
+  width: 23rem;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.card img {
+  margin: 10px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  text-align: center;
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.developer-section {
+  margin-top: 20px;
+}
+
+.developer-section a {
+  color: #ffffff;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.developer-section a:hover {
+  text-decoration: underline;
+}

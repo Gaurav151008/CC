@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+    <!-- <link href="css/style1.css" rel="stylesheet" type="text/css"> -->
+    <style>
+      .checkout-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+a {
+  text-decoration: none;
+}
+
+.checkout-items-container {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.checkout-form-container {
+  flex: 1;
+  padding-left: 20px;
+}
+
+/* Basic styling for form and button */
+form {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 5px;
+}
+
+.checkout-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .checkout-container {
+    flex-direction: column;
+  }
+
+  .checkout-items-container,
+  .checkout-form-container {
+    padding: 0;
+  }
+}
+
+    </style>
+    
+    <style>
+      * {
+    margin: 0px;
+    padding: 0px;
+}
+
+.header {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo i {
+  font-size: 24px;
+  color: #333333;
+  margin-right: 10px;
+}
+
+.logo span {
+  font-size: 40px;
+  font-weight: bold;
+  color: #333333;
+  margin-left: 30%;
+}
+
+.options {
+  display: flex;
+  align-items: center;
+}
+
+.options a {
+  margin-left: 20px;
+  margin-right: 20px;
+  text-decoration: none;
+  color: #333333;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.login-button {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: #333333;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.login-button i {
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+/* Main Content Styles */
+.main-content {
+  height: 525px;
+  max-height: 100%;
+  /* min-height: 100%; */
+  background-color: #b6b2b2;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.left-container {
+  /* width: 70%; */
+  order: 1;
+}
+
+.right-container {
+  /* width: 30%; */
+  order: 2;
+}
+
+.remove-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.remove-button i {
+  color: red;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 80px;
+  margin-top: 3%;
+}
+
+.card {
+  width: 23rem;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.card img {
+  margin: 10px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  text-align: center;
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.developer-section {
+  margin-top: 20px;
+}
+
+.developer-section a {
+  color: #ffffff;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.developer-section a:hover {
+  text-decoration: underline;
+}
+
+.card-container2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  /* gap: 80px; */
+
+        }
+        
+        .card2 {
+            width: 100%;
+            max-width: 400px;
+            height: 100px;
+            background-color: #f2f2f2;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            gap: 80px;
+            margin-top: 3%;
+          }
+          
+        .card2 img {
+            height: 80px;
+            width: 80px;
+            margin-right: 10px;
+            border-radius: 50%;
+          }
+        
+          .card-details2 {
+            flex-grow: 1;
+        }
+        
+        .card-details2 h3 {
+          margin: 0;
+          font-size: 16px;
+            color: #333;
+          }
+          
+          .card-details2 p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #777;
+        }
+        
+        .card-details2 span {
+          font-weight: bold;
+            color: #333;
+        }
+        
+        .card-quantity2 {
+          flex-shrink: 0;
+          display: flex;
+          align-items: center;
+        }
+        
+        .card-quantity2 input {
+          width: 40px;
+            padding: 5px;
+          }
+      .hidden-field {
+        display: none;
+      }
+      .popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background-color: #f1f1f1;
+        border: 1px solid #ccc;
+      }
+    /* Responsive Styles */
+    @media screen and (max-width: 767px) {
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+      }
+    
+      .logo span {
+        margin-left: 0;
+        margin-top: 10px;
+      }
+    
+      .options {
+        margin-top: 10px;
+      }
+    
+      .options a {
+        margin: 10px 0;
+      }
+    
+      .footer {
+        padding: 10px;
+      }
+    
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+    
+      .card2 {
+                    max-width: calc(100% - 20px);
+                }
+      .card-container2{
+        gap: 30px;
+      }
+    }
+    
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
+      .logo span {
+        margin-left: 20%;
+      }
+    
+      .footer {
+        padding: 15px;
+      }
+    
+      .footer-links {
+        display: flex;
+        justify-content: center;
+      }
+      .card2 {
+                    max-width: calc(50% - 20px);
+                }
+                .card-container2{
+        gap: 30px;
+      }
+    }
+    
+    @media screen and (min-width: 1024px) {
+      .footer {
+        padding: 20px;
+      }
+    
+      .footer-links {
+        display: flex;
+        justify-content: center;
+      }
+    }
+          
+          </style>
+
+</head>
+<body>
+  
+  <header class="header">
+    <a href="/">
+      <div class="logo">
+        <span>Campus Cravings</span>
+      </div>
+    </a>
+    
+    <div class="options">
+      <% if (!loggedin) { %>
+      <a href="/usersup">Signup</a>
+      <a href="/usersin">Login</a>
+      <% } else { %>
+      <a href="/address">Cart</a>
+      <a href="/logout">Logout</a>
+      <% } %>
+    </div>
+  </header>
