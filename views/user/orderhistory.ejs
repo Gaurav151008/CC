@@ -1,0 +1,42 @@
+<%- include('../userheader.ejs')%>
+<div class="main-content">
+    <div class="card-container" style="background-color: aliceblue;">
+        <!-- <div class="card"> -->
+            <div class="table-container">
+                <div class="table-responsive">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>OrderId</th>
+                        <th>FoodCounter Name</th>
+                        <!-- <th>OrderItems</th> -->
+                        <th>Order Total Amount</th>
+                        <th>Delivery Address</th>
+                        <th>Payment</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% for (let i = 0; i < allorders.length; i++) { %>
+                        <tr>
+                          <td><%= allorders[i].orderId %></td>
+                          <td><%= fdcname[i] %></td>
+                          <td><%= allorders[i].orderTotalAmount %></td>
+                          <td><%= allorders[i].deliveryAddress %></td>
+                          <td><%= allorders[i].paymentStatus %></td>
+                          <td>
+                            <div class="toggle-button" onclick="toggleStatus(this)">
+                              <div class="circle"><button>Track Order</button></div>
+                            </div>
+                            
+                          </td>
+                        </tr>
+                      <% } %>
+                    </tbody>
+                  </table>
+                </div>
+                </div>
+                            
+        <!-- </div> -->
+  </div>
+</div>
+<%- include('../userfooter.ejs')%>

@@ -54,26 +54,13 @@ user_route.post("/userSup", async (req, res) => {
       });
   });
   
-//sigout
-user_route.get('/logout', (req, res) => {
-  const sessionId = 'loggedin';
 
-  req.sessionStore.destroy(sessionId, (err) => {
-    if (err) {
-      console.error('Error destroying session:', err);
-    } else {
-      req.session.loggedin=false;
-      console.log('Session destroyed');
-      res.redirect('/'); // Redirect to the login page or any other desired destination
+  
+  //   login user
+  user_route.get("/userSin",(req,res)=>{
+    if(req.session.loggedin){
+      res.redirect("/");
     }
-  });
-});
-
-//   login user
-user_route.get("/userSin",(req,res)=>{
-  if(req.session.loggedin){
-    res.redirect("/");
-  }
   else{
     res.render("user/userSin",{title:"Login here..."});
   }
@@ -81,30 +68,30 @@ user_route.get("/userSin",(req,res)=>{
 
 
 user_route.post("/usersin", async(req,res,next)=>{
-    try{
-        // req.session.firstItem = true;
-
-        const email = req.body.email;
-        const password = req.body.password;
-        const user = await users.findOne({userEmail:email});
-        
-        if(user.userPassword == password){
-          const sessionName = 'loggedin';
-          req.session[sessionName] = true;
-            req.session.loginuser = user.userId;
-            // req.session.cartId1 = null;
-            
-            console.log("login success")
-            res.redirect("/");
-        }
-        else{
-            res.send("Invalid credentials");
-        }
+  try{
+    // req.session.firstItem = true;
+    
+    const email = req.body.email;
+    const password = req.body.password;
+    const user = await users.findOne({userEmail:email});
+    
+    if(user.userPassword == password){
+      const sessionName = 'loggedin';
+      req.session[sessionName] = true;
+      req.session.loginuser = user.userId;
+      // req.session.cartId1 = null;
+      
+      console.log("login success")
+      res.redirect("/");
     }
-    catch(error){
-        res.send("Somthing went wrong");
+    else{
+      res.send("Invalid credentials");
     }
-
+  }
+  catch(error){
+    res.send("Somthing went wrong");
+  }
+  
 });
 
 // to show all counters on index
@@ -120,6 +107,38 @@ user_route.get("/", async (req, res) => {
     }
   
 });
+
+
+//useracnt
+user_route.get("/useracnt",async (req,res)=>{
+  try {
+    const userdtl = await users.find({userId:req.session.loginuser});
+
+    res.render("user/userAccount", { userdtl });
+  } catch (err) {
+    // Handle error
+    console.log(err);
+  }
+});
+
+
+user_route.get("/orderhistory", async (req, res) => {
+  
+  try {
+    const allorders = await orders.find({customerId:req.session.loginuser});
+
+    let fdcname = [];
+    for(let i=0;i<allorders.length;i++){
+      fdcname[i]= await vendors.find({foodCounterName:allorders[i].foodCounterId})
+    } 
+    res.render("user/orderhistory", { allorders,fdcname });
+  } catch (err) {
+    // Handle error
+    console.log(err);
+  }
+  
+});
+
 
 // to show particular counters fooditems when user click it
 user_route.get("/menu/:foodCounterId", async (req, res) => {
@@ -234,6 +253,7 @@ user_route.post("/checkout", async (req, res) => {
   const orderId = await generateOrderId();
   // const itemId = request.params.itemid;
   const customerId = req.session.loginuser;
+  console.log(customerId);
   let orderAmount = 0;
   const cartdtl = await carts.find({customerId:req.session.loginuser,status:"pending"});
   const foodCounterId = cartdtl[0].foodCounterId;
@@ -279,13 +299,14 @@ user_route.post("/checkout", async (req, res) => {
         type: "success",
         message: "order added successfully",
       };
+      // io.emit("newOrder", { fdcid: fdcid });
       console.log("Added");
       let updtcart = await carts.updateMany(
         { customerId, status: "pending" }, 
         { $set: { status: "done" } } 
       );
-      
-      // res.render("user/orderStatus");
+
+      res.render("user/orderStatus");
     })
     .catch((err) => {
       res.json({ message: err.message });
@@ -331,5 +352,21 @@ user_route.post('/removeitem', async (req, res) => {
     });
   
 
-});
-module.exports = user_route;
+  });
+
+
+  //sigout
+  user_route.get('/logout', (req, res) => {
+    const sessionId = 'loggedin';
+  
+    req.sessionStore.destroy(sessionId, (err) => {
+      if (err) {
+        console.error('Error destroying session:', err);
+      } else {
+        req.session.loggedin=false;
+        console.log('Session destroyed');
+        res.redirect('/'); // Redirect to the login page or any other desired destination
+      }
+    });
+  });
+  module.exports = user_route;

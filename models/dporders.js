@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
 
-const orderSchema  = new mongoose.Schema({
-
+const dpordersSchema = new mongoose.Schema({
+    dpId:{
+        type: String,
+        required: true,
+    },
     orderId:{
         type: String,
         required: true,
@@ -14,14 +17,6 @@ const orderSchema  = new mongoose.Schema({
         type: String,
         required: true,
     },
-    orderAmount:{
-        type: Number,
-        required: true,
-    },
-    orderDeliberyCharge:{
-        type: Number,
-        required: true,
-    },
     orderTotalAmount:{
         type: Number,
         required: true,
@@ -30,20 +25,20 @@ const orderSchema  = new mongoose.Schema({
         type: String,
         required: true,
     },
-    paymentStatus:{
-        type: String,
+    orderInsentive:{
+        type: Number,
         required: true,
-    },
-    orderAccepted:{
-        type: String,
-        required: true,
-        default: "panding",
+        default: 5,
     },
     orderDateTime:{
-        type: String,
+        type: Date,
         required: true,
     },
-    
-});
+    deliveryStatus:{
+        type: String,
+        require: true,
+        default: "panding",
+    }
+})
 
-module.exports = mongoose.model('orders',orderSchema);
+module.exports = mongoose.model('dporders',dpordersSchema);

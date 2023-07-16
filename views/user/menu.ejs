@@ -10,7 +10,7 @@
             <div class="card-details2">
                 <h3><%= items[i].itemName %></h3>
                 <p><%= items[i].itemDesc %></p>
-                <p><span><%= items[i].itemPrice %></span></p>
+                <p><span>₹ <%= items[i].itemPrice %></span></p>
             </div>
       <input type="text" id="secret-field" name="itemid" value="<%= items[i].itemId %>" class="hidden-field">
             <div class="card-quantity2">
@@ -30,4 +30,4 @@
     </div>
 
 </div>
-<%- include('../userfooter.ejs')%>
+<%- include('../footer.ejs')%>

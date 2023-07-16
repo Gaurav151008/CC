@@ -1,0 +1,354 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+} */
+
+/* body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #36454F;
+} */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.container1 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 100px 36px;
+    padding: 100px 50px;
+}
+
+.container1 .card {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 350px;
+    max-width: 100%;
+    height: 300px;
+    background: white;
+    border-radius: 20px;
+    transition: 0.5s;
+    box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
+}
+
+.container1 .card:hover {
+    height: 400px;
+}
+
+.container1 .card .img-box {
+    position: absolute;
+    top: 20px;
+    width: 300px;
+    height: 220px;
+    /* background: #333; */
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.5s;
+    object-fit: cover;
+
+}
+
+.container1 .card:hover .img-box {
+    top: -100px;
+    scale: 0.75;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+}
+
+.container1 .card .img-box img {
+    position: absolute;
+    top: 0;
+    /* left: 0; */
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover; */
+}
+
+.container1 .card .content {
+    position: absolute;
+    top: 252px;
+    width: 100%;
+    height: 35px;
+    padding: 0 30px;
+    text-align: center;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.container1 .card:hover .content {
+    top: 130px;
+    height: 250px;
+}
+
+.container1 .card .content h2 {
+    font-size: 1.7  rem;
+    font-weight: 700;
+    color: var(--clr);
+}
+
+.container1 .card .content p {
+
+    color: #333;
+}
+
+.container1 .card .content a {
+    position: relative;
+    top: 15px;
+    display: inline-block;
+    padding: 12px 25px;
+    text-decoration: none;
+    background: var(--clr);
+    color: white;
+    font-weight: 500;
+}
+
+.container1 .card .content a:hover {
+    opacity: 0.8;
+}
+
+.card3 {
+    width: 537px;
+    max-width: 100%;
+    /* height: 100px; */
+    max-height: 100vh;
+    background-color: #f2f2f2;
+    margin-bottom: -11px;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    gap: 21px;
+    margin-top: 3%;
+  }
+
+.invoice{
+    text-align: center;
+    margin-top: 20px;
+  }
+
+.carddisp{
+    display: flex;
+    max-width: 100%;
+    /* height: 8vh; */
+    margin: 3% auto;
+    gap: 5%;
+}
+
+
+.card3price{
+    align-items: center;
+    margin-left: 50%;
+}
+.card-quantity3 {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .carddisp input {
+    width: 40px;
+      padding: 5px;
+    }
+
+    /* .card-quantity3 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      background-color: #f2f2f2;
+      border-radius: 4px;
+    } */
+
+.carddisp input[type="number"] {
+    /* padding: 5px -16px; */
+    border: 1px solid #ccc;
+    /* border-radius: 10px; */
+    width: 8%;
+    font-size: 14px;
+}
+
+.card-quantity3 button {
+padding: 8px 16px;
+background-color: #4CAF50;
+color: white;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+font-size: 14px;
+margin-left: 443px;
+}
+
+.card-quantity3 button:hover {
+background-color: #45a049;
+}
+
+.card-quantity3 button:focus {
+outline: none;
+}
+
+.card-quantity3 button:active {
+background-color: #3e8e41;
+}
+
+.line{
+    width: 80vh;
+    height: 1px;
+    background-color: #36454F;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+/* .card3 img {
+    height: 80px;
+    width: 80px;
+    margin-right: 10px;
+    border-radius: 50%;
+  } */
+
+  .text-field {
+    width: 280px; 
+    height: 40px; 
+}
+
+.form-group label[for="location"] {
+  color: #777;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.2;
+  height: 24px;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+
+/* card-container right-container */
+
+.card3_1 {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 4px;
+  margin-top: 26px;
+}
+
+.card3_1 h2 {
+  color: #333;
+}
+
+.card3_1 h3 {
+  color: #777;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.2;
+  height: 24px;
+  margin-bottom: 8px;
+}
+
+
+.amount,
+.delivery-charge,
+.total {
+  color: #777;
+}
+
+.card-body {
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+.text-field {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.checkout-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.checkout-button:hover {
+  background-color: #219126;
+}
+
+.checkout-button:focus {
+  outline: none;
+}
+
+.checkout-button:active {
+  background-color: #219126;
+}
+
+.placed{
+  width: 400px;
+  background: #fff;
+  border-radius: 6px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 0 30px 30px;
+  color: #333;
+}
+
+.placed img{
+  width: 100px;
+  margin-top: -50px;
+  border-radius: 50px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);  
+}
+
+.placed h2{
+  font-size: 38px;
+  font-weight: 500;
+  margin: 30px 0 10px;
+}
+
+@media (max-width: 480px) {
+  .container1 .card {
+      width: 230px;
+      border-radius: 15px;
+  }
+
+  .container1 .card .img-box {
+      width: 185px;
+      border-radius: 10px;
+  }
+
+  .container1 .card .content p {
+      font-size: 0.8rem;
+  }
+
+  .container1 .card .content a {
+      font-size: 0.9rem;
+  }
+}

@@ -10,14 +10,10 @@ const app = express()
 
 
 app.use(bodyParser.urlencoded({extended:true}));
-
 app.use("/public",express.static('public'));
 app.use(express.static('public'));
 // //set view engine    
 app.set("view engine","ejs")
-// const db  = mongoose.connection;
-// db.on("error",(error)=> console.log(error));
-// db.once("open", ()=> console.log("Connected.."));
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 app.use(session({
@@ -38,22 +34,24 @@ app.use('/',vendor_route)
 const user_route = require('./routes/userRoutes');
 app.use('/',user_route)
 
-var http = require("http").createServer(app);
-var io = require("socket.io")(http);
+const dp_routes = require('./routes/dproutes');
+app.use('/',dp_routes)
 
-http.listen(4000,function(){
+// var http = require("http").createServer(app);
+// var io = require("socket.io")(http);
 
-    console.log("surver running");
+// io.on("connection", (socket) => {
+//     console.log("A vendor connected: " + socket.id);
+  
+//     socket.on("disconnect", () => {
+//       console.log("A vendor disconnected: " + socket.id);
+//     });
+//   });
 
-    io.on("connection",function(socket){
-        console.log("Auth value : "+ socket.id);
-        
-        socket.on("notify",function(details){
-            socket.broadcast.emit("notify",details)
-        })
-    })
-})
+// http.listen(4000,function(){
+//     console.log("surver running");
+// })
 
-// app.listen(4000,function(){
-//     console.log("Server is running...");
-// });
+app.listen(4000,function(){
+    console.log("Server is running...");
+});

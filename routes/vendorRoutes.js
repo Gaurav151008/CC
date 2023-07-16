@@ -79,7 +79,6 @@ vendor_route.get("/venacnt",async (req,res)=>{
   try {
     const vendtl = await vendors.find({foodCounterId:req.session.loginvan});
 
-    console.log(vendtl[0]);
     res.render("vendor/venacnt", { vendtl });
   } catch (err) {
     // Handle error
@@ -135,7 +134,6 @@ vendor_route.get("/mymenu", async (req, res) => {
   try {
     const menuItems = await foodItems.find({foodCounterId:req.session.loginvan});
 
-    console.log(menuItems[0].itemId);
     res.render("vendor/mymenu", { menuItems });
   } catch (err) {
     // Handle error

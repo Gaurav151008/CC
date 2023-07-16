@@ -1,0 +1,19 @@
+<%- include('../dpheader.ejs')%>
+  
+  <div class="main-container">
+    <div class="signup-container">
+      <h2>Sign In</h2>
+      <form class="signup-form" method="post" action="/dpsignin">
+        
+        <label for="userEmail">Delivery Id</label>
+        <input type="text" id="userEmail" name="did" placeholder="Enter DeliveryId">
+
+        <label for="userPassword">Password</label>
+        <input type="password" id="userPassword" name="password" placeholder="Enter your password">
+
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+
+<%- include('../footer.ejs')%>

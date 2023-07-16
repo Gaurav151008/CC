@@ -1,0 +1,16 @@
+<%- include('../userheader.ejs')%>
+<div class="main-content">
+    <div class="card-container">
+        
+    <div class="card">
+        <div class="card-body">
+            <h2>User Account</h2>
+          <p><strong>User Id:</strong><%= userdtl[0].userId %></p>
+          <p><strong>Vendor Name:</strong><%= userdtl[0].userName %></p>
+          <p><strong>Email:</strong><%= userdtl[0].userEmail %></p>
+          <p><strong>Phone:</strong><%= userdtl[0].userContact %></p>
+        </div>
+      </div>
+  </div>
+</div>
+<%- include('../userfooter.ejs')%>

@@ -1,0 +1,34 @@
+<%- include('../dpheader.ejs')%>
+<div class="main-content">
+    <script src="../public/js/script.js"></script>
+    <div class="card-container2">
+        <% for (let i = 0; i < openorders.length; i++) { %>
+        <form method="post" action="/verify">
+
+        <div class="card3">
+            <h2>Order Invoice:</h2>
+            <div class="card-details3">
+                <h3>Pick Up: <%= fdcnames[i] %></h3>
+                <h3>Delivery Location: <%= openorders[i].deliveryAddress %></h3>
+                <h3>Food Counter contact: <%= fdcconts[i] %></h3>
+                <h3>Customer Name: <%= usernames[i] %></h3>
+                <h3>Customer Contact: <%= userconts[i] %></h3>
+                <h3>Order Amount: <%= openorders[i].orderTotalAmount %></h3>
+            </div>
+            <input type="text" id="secret-field" name="orderid" value="<%= openorders[i].orderId %>" class="hidden-field">
+
+            <input type="number" name="delotp" value="Enter OTP" class="delotp">
+            <div class="card-quantity2">
+                <div><button type="submit">
+                    Delivery Done
+                </button></div>
+            </div>
+        </div>
+        </form>
+        <% } %>
+        
+        <!-- Add more card elements here as needed -->
+    </div>
+
+</div>
+<%- include('../footer.ejs')%>

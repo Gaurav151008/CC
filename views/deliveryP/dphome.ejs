@@ -1,0 +1,23 @@
+<%- include('../dpheader.ejs')%>
+<div class="main-content">
+    <script src="../public/js/script.js"></script>
+    <div class="card-container2">
+        <% for (let i = 0; i < neworders.length; i++) { %>
+
+        <div class="card2">
+            <div class="card-details2">
+                <h3>Pick Up: <%= fdcnames[i] %></h3>
+                <h3>Delivery Location: <%= neworders[i].deliveryAddress %></h3>
+            </div>
+            <div class="card-quantity2">
+                <div><a href="acceptorder/<%= fdcnames[i] %>/<%= neworders[i].orderId %>"><button type="submit">Accept</button></a></div>
+            </div>
+        </div>
+        
+        <% } %>
+             
+        <!-- Add more card elements here as needed -->
+    </div>
+
+</div>
+<%- include('../footer.ejs')%>

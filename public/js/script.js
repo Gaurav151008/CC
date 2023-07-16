@@ -1,5 +1,4 @@
-const express = require("express");
-const carts = require("../../models/cart");
+// var carts = require("../../models/cart");
 
 function showPopup() {
     var popup = document.getElementById("popup");
@@ -10,27 +9,27 @@ function showPopup() {
     }, 2000); // Hide the popup after 2 seconds (adjust the delay as needed)
   }
 
-  const quantityInput = document.querySelector('[name="itemqun"]');
+  // const quantityInput = document.querySelector('[name="itemqun"]');
 
-  // Get the corresponding table cell
-  const quantityCell = document.querySelector('.quantity-cell[data-itemid="1"]');
+  // // Get the corresponding table cell
+  // const quantityCell = document.querySelector('.quantity-cell[data-itemid="1"]');
 
   // Listen for the input event on the quantity input field
-  quantityInput.addEventListener('input', async (event) => {
-    const newQuantity = event.target.value;
-    // Update the table cell with the new quantity
-    quantityCell.textContent = newQuantity;
+  // quantityInput.addEventListener('input', async (event) => {
+  //   const newQuantity = event.target.value;
+  //   // Update the table cell with the new quantity
+  //   quantityCell.textContent = newQuantity;
 
-    // Update the quantity in the database
-    const filter = { itemId: '' }; // Adjust the filter criteria as per your database structure
-    const update = { $set: { itemqun: newQuantity } }; // Adjust the field to be updated
-    try {
-      const result = await collection.updateOne(filter, update);
-      console.log('Quantity updated in the database');
-    } catch (error) {
-      console.error('Failed to update quantity in the database:', error);
-    }
-  });
+  //   // Update the quantity in the database
+  //   const filter = { itemId: '' }; // Adjust the filter criteria as per your database structure
+  //   const update = { $set: { itemqun: newQuantity } }; // Adjust the field to be updated
+  //   try {
+  //     const result = await collection.updateOne(filter, update);
+  //     console.log('Quantity updated in the database');
+  //   } catch (error) {
+  //     console.error('Failed to update quantity in the database:', error);
+  //   }
+  // });
 
 
   function removeItem(itemId) {
@@ -62,16 +61,6 @@ function showPopup() {
     button.classList.toggle('toggle-on');
   }
   
-  function sendNotify(fdcId) {
-    var socket = io();
-  
-    console.log("Entry2");
-  
-    // Emit the 'notify' event with the food counter ID
-    socket.emit("notify", {
-      fdcid: fdcId
-    });
-    toastr.success("Notification sent to vendor");
-
+  function sendNotify() {
+    alert("Order Recived!");
   }
-  
