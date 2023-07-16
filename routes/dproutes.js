@@ -219,4 +219,18 @@ dp_routes.get("/orderdelivered", async (req, res) => {
     }
   
 });
+
+
+
+dp_routes.get("/dplogout", async (req, res) => {
+  
+  try {
+    req.session.destroy();
+    res.redirect('/dpsignin');
+  } catch (err) {
+      // Handle error
+      console.log(err);
+    }
+  
+});
 module.exports = dp_routes;

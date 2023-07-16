@@ -1,30 +1,30 @@
 <%- include('../dpheader.ejs')%>
 <div class="main-content">
     <script src="../public/js/script.js"></script>
-    <div class="card-container2">
+    <div class="card-container3">
         <% for (let i = 0; i < openorders.length; i++) { %>
-        <form method="post" action="/verify">
-
+            
         <div class="card3">
+            <form method="post" action="/verify">
             <h2>Order Invoice:</h2>
             <div class="card-details3">
-                <h3>Pick Up: <%= fdcnames[i] %></h3>
-                <h3>Delivery Location: <%= openorders[i].deliveryAddress %></h3>
-                <h3>Food Counter contact: <%= fdcconts[i] %></h3>
-                <h3>Customer Name: <%= usernames[i] %></h3>
-                <h3>Customer Contact: <%= userconts[i] %></h3>
-                <h3>Order Amount: <%= openorders[i].orderTotalAmount %></h3>
+                <h5><strong>Pick Up : </strong> <%= fdcnames[i] %></h5>
+                <h5> <strong>Delivery Location : </strong><%= openorders[i].deliveryAddress %></h5>
+                <h5><strong>Food Counter contact : </strong><%= fdcconts[i] %></h5>
+                <h5><strong>Customer Name : </strong><%= usernames[i] %></h5>
+                <h5><strong>Customer Contact : </strong><%= userconts[i] %></h5>
+                <h5><strong>Order Amount : </strong><%= openorders[i].orderTotalAmount %></h5>
             </div>
-            <input type="text" id="secret-field" name="orderid" value="<%= openorders[i].orderId %>" class="hidden-field">
-
-            <input type="number" name="delotp" value="Enter OTP" class="delotp">
-            <div class="card-quantity2">
-                <div><button type="submit">
-                    Delivery Done
-                </button></div>
+            <div class="otpdisp">
+                <input type="text" id="secret-field" name="orderid" value="<%= openorders[i].orderId %>" class="hidden-field">
+                <div class="otp-input-wrapper">
+                    <input type="text" name="delotp" class="delotp" placeholder="Enter OTP" pattern="[0-9]*" inputmode="numeric">
+                    <button type="submit" class="delivery-button">Delivery Done</button>
+                </div>
             </div>
+            
+            </form>
         </div>
-        </form>
         <% } %>
         
         <!-- Add more card elements here as needed -->

@@ -230,15 +230,22 @@ user_route.post("/updatequn", async (req, res) => {
 user_route.get("/address", async (req, res) => {
     
   try {
-      const items = await carts.find({customerId:req.session.loginuser,status:"pending"});
+      const items = await carts.find({ customerId: req.session.loginuser, status: "pending" });
 
+      let flag;
+      if (items.length === 0) {
+        flag = true;
+      } else {
+        flag = false;
+      }
+    
       // console.log(items);
       let sum=0;
       // Use the counters data in your response rendering or processing logic
       for(let i=0;i<items.length;i++){
         sum = sum+(items[i].itemPrice*items[i].itemQuntity);
       }
-      res.render("user/checkout", { items ,sum});
+      res.render("user/checkout", { items ,sum , flag});
     } catch (err) {
       // Handle error
       console.log(err);
